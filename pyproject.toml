@@ -16,3 +16,15 @@ dev = [
     "isort>=6.0.1",
     "mypy>=1.17.1",
 ]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+exclude = '''.env'''
+
+[tool.coverage.run]
+omit = [
+    "__init__.py",
+    "tests/*",
+]
