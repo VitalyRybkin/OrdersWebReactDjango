@@ -17,6 +17,9 @@ dev = [
     "make>=0.1.6.post2",
     "mypy>=1.17.1",
 ]
+prod = [
+    "uvicorn>=0.35.0",
+]
 
 [tool.isort]
 profile = "black"
