@@ -2,6 +2,7 @@ SRC_DIR := orders_app
 ALEMBIC_CONFIG ?= alembic.ini
 ALEMBIC_CMD = PYTHONPATH=./ alembic -c $(ALEMBIC_CONFIG)
 PORT ?= 8080
+APP_NAME := orders_app
 
 .PHONY: lint run auto up down his test test_cov
 
@@ -25,12 +26,17 @@ run: ## 🏃 Run app
 
 migrate: ## ➡️ Apply all migrations
 	@echo "${YELLOW}${BOLD}Starting migrations...${NC}"
-	. .venv/bin/activate && export ENV=dev && uv run manage.py migrate
+	. .venv/bin/activate && export ENV=dev && uv run manage.py migrate $(APP_NAME)
 	@echo "${YELLOW}${BOLD}Done!${NC}"
 
 migrations: ## 🔄 Make new migrations
-	@echo "${YELLOW}${BOLD}Starting migrations...${NC}"
-	. .venv/bin/activate && export ENV=dev && uv run manage.py makemigrations
+	@echo "${YELLOW}${BOLD}Creating migrations...${NC}"
+	. .venv/bin/activate && export ENV=dev && uv run manage.py makemigrations $(APP_NAME)
+	@echo "${YELLOW}${BOLD}Done!${NC}"
+
+show: ## 📋 Show all migrations
+	@echo "${YELLOW}${BOLD}Showing all migrations for '$(APP_NAME)' ...${NC}"
+	. .venv/bin/activate && export ENV=dev && uv run manage.py showmigrations $(APP_NAME)
 	@echo "${YELLOW}${BOLD}Done!${NC}"
 
 #auto: ## 🎁 Create a new Alembic revision with autogenerate
