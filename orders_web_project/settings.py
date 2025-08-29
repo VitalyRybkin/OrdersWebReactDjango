@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from settings import project_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,9 +76,21 @@ WSGI_APPLICATION = "orders_web_project.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": project_settings.DB_NAME,
+        "USER": project_settings.DB_USER,
+        "PASSWORD": project_settings.DB_PASSWORD,
+        "HOST": project_settings.DB_HOST,
+        "PORT": project_settings.DB_PORT,
+        "OPTIONS": {
+            "sslmode": project_settings.DB_SSL_MODE,
+            "sslrootcert": project_settings.DB_SSL_ROOT_CERT,
+        },
     }
 }
 

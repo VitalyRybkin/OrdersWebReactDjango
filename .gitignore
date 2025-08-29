@@ -13,3 +13,6 @@ wheels/
 .vscode/
 .idea/
 .DS_Store
+
+#credentials
+credentials
