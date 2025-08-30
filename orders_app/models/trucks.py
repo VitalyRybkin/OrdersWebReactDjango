@@ -1,20 +1,20 @@
 from django.db import models
 
 
-class Trucks(models.Model):
+class Truck(models.Model):
     truck_type = models.ForeignKey(
-        "TruckTypes",
+        "TruckType",
         on_delete=models.CASCADE,
         related_name="trucks",
     )
     truck_capacity = models.ForeignKey(
-        "TruckCapacities",
+        "TruckCapacity",
         on_delete=models.CASCADE,
         related_name="trucks",
     )
     description = models.TextField(null=True, blank=True)
     carrier = models.ForeignKey(
-        "Carriers",
+        "Carrier",
         on_delete=models.CASCADE,
         related_name="trucks",
     )

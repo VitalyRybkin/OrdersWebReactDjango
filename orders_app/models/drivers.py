@@ -1,9 +1,9 @@
 from django.db import models
 
 
-class Drivers(models.Model):
+class Driver(models.Model):
     carrier = models.ForeignKey(
-        "Carriers", on_delete=models.CASCADE, related_name="drivers"
+        "Carrier", on_delete=models.CASCADE, related_name="drivers"
     )
     driver_name = models.CharField(max_length=100)
 

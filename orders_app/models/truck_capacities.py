@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class TruckCapacities(models.Model):
+class TruckCapacity(models.Model):
 
     class Meta:
         db_table = "orders_app_truck_capacities"
