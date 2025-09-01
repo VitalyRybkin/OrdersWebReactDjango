@@ -1,5 +1,5 @@
 import math
-from decimal import Decimal
+from typing import Any
 
 from django.core.validators import MinValueValidator
 from django.db import models
@@ -18,19 +18,14 @@ class OrderItem(models.Model):
         ]
 
     @property
-    def num_of_palettes(self):
+    def num_of_palettes(self) -> Any:
         """Returns the number of palettes needed to order the product."""
         return math.ceil(self.quantity / self.product.palette_volume)
 
     @property
-    def line_weight(self) -> Decimal:
+    def line_weight(self) -> Any:
         """Returns the weight of the order item in kg."""
         return self.product.base_unit_weight * self.quantity
 
     def __str__(self):
-        return (
-            f"<OrderItem "
-            f"order={self.order} "
-            f"product={self.product} "
-            f"quantity={self.quantity}>"
-        )
+        return f"МАТЕРИАЛ ЗАКАЗА: {self.product.product_name} ({self.quantity} шт.)"

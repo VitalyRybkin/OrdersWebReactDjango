@@ -1,29 +1,27 @@
-from .clients import Client
-from .stocks import Stock
-from .units import Unit
+__all__ = (
+    "Customer",
+    "Stock",
+    "AppUnit",
+    "Carrier",
+    "Truck",
+    "Driver",
+    "TruckType",
+    "TruckCapacity",
+    "Product",
+    "OrderItem",
+    "Order",
+    "ProductWeight",
+)
+
 from .carriers import Carrier
-from .trucks import Truck
+from .clients import Customer
 from .drivers import Driver
-from .truck_types import TruckType
-from .truck_capacities import TruckCapacity
-from .products import Product
 from .order_items import OrderItem
 from .orders import Order
 from .product_units import ProductWeight
-
-
-for __all__ in [
-    Client,
-    Stock,
-    Unit,
-    Carrier,
-    Truck,
-    Driver,
-    TruckType,
-    TruckCapacity,
-    Product,
-    OrderItem,
-    Order,
-    ProductWeight,
-]:
-    __all__.objects.all()
+from .products import Product
+from .stocks import Stock
+from .truck_capacities import TruckCapacity
+from .truck_types import TruckType
+from .trucks import Truck
+from .units import AppUnit

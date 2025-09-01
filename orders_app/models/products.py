@@ -1,7 +1,6 @@
 from django.db import models
 
-from orders_app.models import Unit
-from django.core.exceptions import ObjectDoesNotExist
+
 from orders_app.models.product_units import ProductWeight
 
 
@@ -11,7 +10,7 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
 
     product_units = models.ManyToManyField(
-        "Unit", through="ProductWeight", related_name="product_units"
+        "AppUnit", through="ProductWeight", related_name="product_units"
     )
 
     def convert(self, quantity: float, from_unit: "Unit", to_unit: "Unit") -> float:

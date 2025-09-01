@@ -7,9 +7,9 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = []
+    dependencies: list = []
 
-    operations = [
+    operations: list = [
         migrations.CreateModel(
             name="Client",
             fields=[

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from orders_app.models import Product, Unit, ProductWeight
+from orders_app.models import Product, ProductWeight, AppUnit
 
 
 class ProductUnitInline(admin.TabularInline):
@@ -22,7 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ()
 
 
-@admin.register(Unit)
+@admin.register(AppUnit)
 class UnitAdmin(admin.ModelAdmin):
     inlines = (ProductUnitInline,)
 
