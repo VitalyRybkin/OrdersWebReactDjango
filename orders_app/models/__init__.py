@@ -7,6 +7,8 @@ from .drivers import Driver
 from .truck_types import TruckType
 from .truck_capacities import TruckCapacity
 from .products import Product
+from .order_items import OrderItem
+from .orders import Order
 
 
 for __all__ in [
@@ -19,5 +21,7 @@ for __all__ in [
     TruckType,
     TruckCapacity,
     Product,
+    OrderItem,
+    Order,
 ]:
     __all__.objects.all()

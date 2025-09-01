@@ -9,8 +9,10 @@ class Product(models.Model):
         "Unit", on_delete=models.CASCADE, related_name="products"
     )
     base_unit_weight = models.DecimalField(
-        max_digits=12, decimal_places=6,
-        help_text="For example: 1 pcs = 0.5 kg, 1 kg = 1.0, 1 ton = 1000.0"
+        max_digits=12,
+        decimal_places=6,
+        help_text="For example: 1 pcs = 0.5 kg, 1 kg = 1.0, 1 ton = 1000.0",
+        related_name="product_base_unit_weight",
     )
 
     palette_volume = models.SmallIntegerField(null=True)
