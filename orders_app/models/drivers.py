@@ -13,6 +13,7 @@ class Driver(models.Model):
     :ivar driver_name: The name of the driver.
     :type driver_name: CharField
     """
+
     carrier = models.ForeignKey(
         "Carrier", on_delete=models.CASCADE, related_name="drivers"
     )

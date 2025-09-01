@@ -40,6 +40,7 @@ class Order(models.Model):
         left blank.
     :type confirmation_file: FileField
     """
+
     user = models.ForeignKey("auth.User", on_delete=models.PROTECT)
     customer = models.ForeignKey("Customer", on_delete=models.PROTECT)
     stock = models.ForeignKey("Stock", on_delete=models.PROTECT)

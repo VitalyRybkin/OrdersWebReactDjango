@@ -16,6 +16,7 @@ class Carrier(models.Model):
         be left blank.
     :type description: str or None
     """
+
     carrier_name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
 

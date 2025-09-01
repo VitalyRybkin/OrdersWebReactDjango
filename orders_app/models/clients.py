@@ -12,6 +12,7 @@ class Customer(models.Model):
     :ivar description: Additional description or details about the client,
                        which is optional.
     """
+
     customer = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
 

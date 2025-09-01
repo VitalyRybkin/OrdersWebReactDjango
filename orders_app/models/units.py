@@ -21,6 +21,7 @@ class AppUnit(models.Model):
                         For non-weight-based units, it defaults to 1.
     :type to_kg_factor: Decimal
     """
+
     unit_name = models.CharField(max_length=20, unique=True)
     unit_shortcut = models.CharField(max_length=3, unique=True)
     is_weight_based = models.BooleanField(default=True)

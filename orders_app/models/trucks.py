@@ -18,6 +18,7 @@ class Truck(models.Model):
     :ivar carrier: The carrier associated with the truck, linked to the Carrier model.
     :type carrier: ForeignKey
     """
+
     truck_type = models.ForeignKey(
         "TruckType",
         on_delete=models.CASCADE,
