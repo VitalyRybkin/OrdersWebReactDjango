@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import F
+from django.db.models.query_utils import Q
 
 
 class OrderItem(models.Model):
@@ -16,12 +17,6 @@ class OrderItem(models.Model):
         unique_together = ("order", "product")
         indexes = [
             models.Index(fields=["order", "product"]),
-        ]
-        constraints = [
-            models.CheckConstraint(
-                check=F("quantity") >= 1,
-                name="order_items_quantity_gte_1",
-            ),
         ]
 
     @property

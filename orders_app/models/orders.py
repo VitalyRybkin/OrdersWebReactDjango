@@ -40,7 +40,7 @@ class Order(models.Model):
     @property
     def total_weight(self):
         result = self.items.aggregate(
-            total=Sum(F("product_base_unit_weight") * F("quantity"))
+            total=Sum(F("product__base_unit_weight") * F("quantity"))
         )["total"]
         return result or Decimal("0.000")
 
