@@ -11,16 +11,17 @@ class ProductWeight(models.Model):
 
     :ivar product: The product associated with this weight entry.
     :type product: ForeignKey to Product
-    :ivar unit: The unit of measurement associated with this weight entry.
-    :type unit: ForeignKey to AppUnit
+    :ivar product_unit: The unit of measurement associated with this weight entry.
+    :type product_unit: ForeignKey to AppUnit
     :ivar kg_per_unit: The weight in kilograms corresponding to one unit of measurement.
                        For example, 1 piece = 0.5 kg, 1 kg = 1.0, 1 ton = 1000.0.
     :type kg_per_unit: DecimalField
     """
+
     product = models.ForeignKey(
-        "Product", on_delete=models.CASCADE, related_name="units"
+        "Product", on_delete=models.CASCADE
     )
-    unit = models.ForeignKey("AppUnit", on_delete=models.CASCADE)
+    product_unit = models.ForeignKey("AppUnit", on_delete=models.CASCADE)
 
     kg_per_unit = models.DecimalField(
         max_digits=12,
@@ -29,8 +30,8 @@ class ProductWeight(models.Model):
     )
 
     class Meta:
-        unique_together = ("product", "unit")
+        unique_together = ("product", "product_unit")
         db_table = "orders_app_product_weights"
 
     def __str__(self):
-        return f"ВЕС: {self.product.product_name} - <{self.unit.unit_shortcut}, {self.kg_per_unit} кг>"
+        return f"ВЕС: {self.product.product_name} - <{self.product_unit.unit_shortcut}, {self.kg_per_unit} кг>"
