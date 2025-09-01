@@ -27,7 +27,7 @@ run: ## 🏃 Run app
 migrate: ## ➡️ Apply all migrations
 	@echo "${YELLOW}${BOLD}Starting migrations...${NC}"
 	. .venv/bin/activate && export ENV=dev && uv run manage.py migrate $(APP_NAME)
-	@echo "${YELLOW}${BOLD}Done!${NC}"
+	@echo "${YELLOW}${BOLD}Applied!${NC}"
 
 migrations: ## 🔄 Make new migrations
 	@echo "${YELLOW}${BOLD}Creating migrations...${NC}"
@@ -47,10 +47,10 @@ show: ## 📋 Show all migrations
 #	@echo "Upgrading database..."
 #	. .venv/bin/activate && $(ALEMBIC_CMD) upgrade $(rev)
 #
-#down: ## ⬇️ Downgrade database to a specific revision or 'base'
-#	@echo "Downgrading database..."
-#	. .venv/bin/activate && $(ALEMBIC_CMD) downgrade $(rev)
-#
+down: ## ⬇️ Downgrade database to a specific revision or 'base'
+	@echo "${YELLOW}${BOLD}Downgrading database ...${NC}"
+	. .venv/bin/activate && export ENV=dev && uv run manage.py migrate $(APP_NAME) $(rev)
+	@echo "${YELLOW}${BOLD}Unapplied!${NC}"
 #his: ## 📋 Show the migration history
 #	@echo "Alembic migration history:"
 #	. .venv/bin/activate && $(ALEMBIC_CMD) history
