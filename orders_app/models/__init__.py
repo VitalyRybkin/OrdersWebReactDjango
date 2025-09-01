@@ -9,6 +9,7 @@ from .truck_capacities import TruckCapacity
 from .products import Product
 from .order_items import OrderItem
 from .orders import Order
+from .product_units import ProductWeight
 
 
 for __all__ in [
@@ -23,5 +24,6 @@ for __all__ in [
     Product,
     OrderItem,
     Order,
+    ProductWeight,
 ]:
     __all__.objects.all()

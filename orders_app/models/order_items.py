@@ -3,8 +3,6 @@ from decimal import Decimal
 
 from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models import F
-from django.db.models.query_utils import Q
 
 
 class OrderItem(models.Model):
