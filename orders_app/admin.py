@@ -1,6 +1,16 @@
 from django.contrib import admin
 
-from orders_app.models import AppUnit, Product, ProductWeight, Stock, Truck, TruckType, TruckCapacity, Driver
+from orders_app.models import (
+    AppUnit,
+    Carrier,
+    Driver,
+    Product,
+    ProductWeight,
+    Stock,
+    Truck,
+    TruckCapacity,
+    TruckType,
+)
 
 
 class ProductUnitInline(admin.TabularInline):
@@ -37,7 +47,7 @@ class UnitAdmin(admin.ModelAdmin):
 class ProductWeightAdmin(admin.ModelAdmin):
     list_display = ("product", "unit_shortcut", "kg_per_unit")
     list_filter = ("product", "product_unit")
-    search_fields = "product",
+    search_fields = ("product",)
     ordering = ("product", "product_unit")
 
     def unit_shortcut(self, obj):
@@ -67,6 +77,13 @@ class TruckCapacityAdmin(admin.ModelAdmin):
     list_display = ("truck_capacity", "description")
     ordering = ("truck_capacity",)
 
+
 @admin.register(Driver)
 class DriverAdmin(admin.ModelAdmin):
     list_display = ("driver_name", "carrier")
+
+
+@admin.register(Carrier)
+class CarrierAdmin(admin.ModelAdmin):
+    list_display = ("carrier_name", "description")
+    ordering = ("carrier_name",)

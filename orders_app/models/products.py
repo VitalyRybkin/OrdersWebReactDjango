@@ -18,17 +18,14 @@ class Product(models.Model):
     :ivar description: A textual description of the product.
     :type description: str, optional
     """
+
     product_name = models.CharField(max_length=100)
     palette_volume = models.SmallIntegerField(null=True)
     description = models.TextField(null=True, blank=True)
 
-    product_unit = models.ManyToManyField(
-        "AppUnit", through="ProductWeight"
-    )
+    product_unit = models.ManyToManyField("AppUnit", through="ProductWeight")
 
-    def convert(
-        self, quantity: float, from_unit, to_unit
-    ) -> float:
+    def convert(self, quantity: float, from_unit, to_unit) -> float:
         """Converts quantity from one unit to another"""
         try:
             if from_unit.is_weight_based:

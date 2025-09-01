@@ -18,9 +18,7 @@ class ProductWeight(models.Model):
     :type kg_per_unit: DecimalField
     """
 
-    product = models.ForeignKey(
-        "Product", on_delete=models.CASCADE
-    )
+    product = models.ForeignKey("Product", on_delete=models.CASCADE)
     product_unit = models.ForeignKey("AppUnit", on_delete=models.CASCADE)
 
     kg_per_unit = models.DecimalField(
