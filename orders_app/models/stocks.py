@@ -13,7 +13,12 @@ class Stock(models.Model):
     :ivar description: Optional description providing additional details about the stock.
     :type description: TextField
     """
+
     stock_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, null=True, blank=True)
+    driving_scheme = models.FileField(
+        upload_to="orders_app/schemas/", null=True, blank=True
+    )
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
