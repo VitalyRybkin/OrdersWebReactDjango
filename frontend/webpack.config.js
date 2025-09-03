@@ -5,12 +5,11 @@ module.exports = {
 
   entry: "./src/index.js",
 
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "./static/frontend/dist/"),
-    publicPath: "/static/frontend/dist/",
-    clean: true, // cleans /dist before each build (Webpack 5+)
-  },
+    output: {
+        filename: "[name].[contenthash].js",
+        path: path.resolve(__dirname, "dist"),
+        clean: true,
+    },
 
   module: {
     rules: [
