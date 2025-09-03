@@ -13,6 +13,11 @@ wheels/
 .vscode/
 .idea/
 .DS_Store
+*.swp
+*.swo
 
 #credentials
 credentials
+
+# Node modules
+frontend/node_modules
